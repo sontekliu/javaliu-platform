@@ -55,6 +55,7 @@
 
         <!-- 操作数据库相关的jar start -->
         <dbcp.version>2.0</dbcp.version>
+        <druid.version>1.0.28</druid.version>
         <mybatis.version>3.2.3</mybatis.version>
         <mybatis-spring.version>1.2.2</mybatis-spring.version>
         <mysql-driver.version>5.1.40</mysql-driver.version>
@@ -251,6 +252,11 @@
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
                 <version>${mysql-driver.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid.version}</version>
             </dependency>
 
         </dependencies>
