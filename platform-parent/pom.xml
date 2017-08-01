@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.javaliu.platform</groupId>
+    <artifactId>platform-parent</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>../platform-base</module>
+        <module>../platform-sdk</module>
+        <module>../platform-web</module>
+    </modules>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- 单元测试 start -->
+        <junit.version>4.12</junit.version>
+        <!-- 单元测试 end -->
+
+        <!-- 日志相关  start -->
+        <log4j.version>1.2.17</log4j.version>
+        <slf4j.version>1.7.21</slf4j.version>
+        <!-- 日志相关  end -->
+
+        <!-- commons jar start -->
+        <commons-lang.version>3.4</commons-lang.version>
+        <commons-collections.version>3.2.1</commons-collections.version>
+        <commons-beanutils.version>1.9.2</commons-beanutils.version>
+        <commons-io.version>2.4</commons-io.version>
+        <commons-compress.version>1.4.1</commons-compress.version>
+        <commons-fileupload.version>1.3.1</commons-fileupload.version>
+        <commons-codec.version>1.10</commons-codec.version>
+        <commons-email.version>1.4</commons-email.version>
+        <commons-dbutils.version>1.6</commons-dbutils.version>
+        <commons-log.version>1.1.1</commons-log.version>
+        <!-- commons jar end -->
+
+        <!-- 容器类相关的jar start -->
+        <spring.version>4.2.9.RELEASE</spring.version>
+        <aop.version>1.8.0</aop.version>
+        <!-- 容器类相关的jar end -->
+
+        <!-- 操作Excel的 JAR start -->
+        <poi.version>3.10-FINAL</poi.version>
+        <!-- 操作Excel的 JAR end -->
+
+        <!-- 处理JSON的JAR start -->
+        <gson.sersion>2.2.4</gson.sersion>
+        <fastjson.version>1.2.29</fastjson.version>
+        <jwt.version>3.1.0</jwt.version>
+        <!-- 处理JSON的JAR end -->
+
+        <!-- 操作数据库相关的jar start -->
+        <dbcp.version>2.0</dbcp.version>
+        <mybatis.version>3.2.3</mybatis.version>
+        <mybatis-spring.version>1.2.2</mybatis-spring.version>
+        <mysql-driver.version>5.1.40</mysql-driver.version>
+        <!-- 操作数据库相关的jar end -->
+
+        <cxf.version>3.1.9</cxf.version>
+        <jetty.version>8.1.17.v20150415</jetty.version>
+
+        <!-- 操作XML 文件的JAR start -->
+        <dom4j.version>1.6</dom4j.version>
+        <!-- 操作XML 文件的JAR end -->
+
+        <httpclient.version>4.3.2</httpclient.version>
+        <kaptcha.version>0.0.9</kaptcha.version>
+
+        <!-- WEB 方面的 jar -->
+        <servlet.version>3.0.1</servlet.version>
+        <taglib.version>1.1.2</taglib.version>
+        <jstl.version>1.2</jstl.version>
+        <jsp-api.version>2.1</jsp-api.version>
+        <!-- WEB 方面的 jar end -->
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <!-- log start -->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+            <!-- log end   -->
+
+            <!-- commons jar start -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-collections</groupId>
+                <artifactId>commons-collections</artifactId>
+                <version>${commons-collections.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-beanutils</groupId>
+                <artifactId>commons-beanutils</artifactId>
+                <version>${commons-beanutils.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons-io.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-compress</artifactId>
+                <version>${commons-compress.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-fileupload</groupId>
+                <artifactId>commons-fileupload</artifactId>
+                <version>${commons-fileupload.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-codec</groupId>
+                <artifactId>commons-codec</artifactId>
+                <version>${commons-codec.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-email</artifactId>
+                <version>${commons-email.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-logging</groupId>
+                <artifactId>commons-logging</artifactId>
+                <version>${commons-log.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-dbutils</groupId>
+                <artifactId>commons-dbutils</artifactId>
+                <version>${commons-dbutils.version}</version>
+            </dependency>
+            <!-- commons jar end   -->
+
+            <!-- spring start -->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-test</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-core</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-beans</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context-support</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-web</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-webmvc</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-aop</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-aspects</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-jdbc</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-tx</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-orm</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-oxm</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-expression</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <!-- spring end -->
+            <dependency>
+                <groupId>org.aspectj</groupId>
+                <artifactId>aspectjweaver</artifactId>
+                <version>${aop.version}</version>
+            </dependency>
+
+            <!-- poi start -->
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi</artifactId>
+                <version>${poi.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-ooxml</artifactId>
+                <version>${poi.version}</version>
+            </dependency>
+            <!-- poi end -->
+
+            <!-- json start -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+            <!-- json end -->
+
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-driver.version}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+
+</project>

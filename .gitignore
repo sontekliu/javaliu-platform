@@ -1,0 +1,6 @@
+*/target/*
+/tags
+.idea
+*/.idea
+*.iml
+*/*.iml
