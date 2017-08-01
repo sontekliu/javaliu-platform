@@ -34,14 +34,14 @@ public class SnowFlake {
     private static final long START_STAMP = 1480166465631L;
 
     //数据中心占用的位数
-    private static final long DATACENTER_BIT = 5;
+    private static final long DATA_CENTER_BIT = 5;
     //机器标识占用的位数
     private static final long MACHINE_BIT = 5;
     //序列号占用的位数
     private static final long SEQUENCE_BIT = 12;
 
     // 数据中心的最大值是 31
-    private static final long MAX_DATACENTER_NUM = -1L ^ (-1L << DATACENTER_BIT);
+    private static final long MAX_DATACENTER_NUM = -1L ^ (-1L << DATA_CENTER_BIT);
     // 机器标示的最大值是 31
     private static final long MAX_MACHINE_NUM = -1L ^ (-1L << MACHINE_BIT);
     // 序列号的最大值是 4095
@@ -52,30 +52,32 @@ public class SnowFlake {
     // 数据中心左移 12 + 5 位
     private static final long DATACENTER_LEFT = SEQUENCE_BIT + MACHINE_BIT;
     // 时间戳左移 (12 + 5) + 5 位
-    private static final long TIMESTMP_LEFT = DATACENTER_LEFT + DATACENTER_BIT;
+    private static final long TIMESTMP_LEFT = DATACENTER_LEFT + DATA_CENTER_BIT;
 
-    private long datacenterId;  //数据中心
+    private long dataCenterId;  //数据中心
     private long machineId;    //机器标识
     private long sequence = 0L; //序列号
-    private long lastStmp = -1L;//上一次时间戳
+    private long lastStamp = -1L;//上一次时间戳
 
-    public SnowFlake(long datacenterId, long machineId) {
-        if (datacenterId > MAX_DATACENTER_NUM || datacenterId < 0) {
+    private static final SnowFlake SNOW_FLAKE_INSTANCE = new SnowFlake(1,1);
+
+    public static SnowFlake getInstance(){
+        return SNOW_FLAKE_INSTANCE;
+    }
+
+    private SnowFlake(){
+
+    }
+
+    private SnowFlake(long dataCenterId, long machineId) {
+        if (dataCenterId > MAX_DATACENTER_NUM || dataCenterId < 0) {
             throw new IllegalArgumentException("datacenterId can't be greater than MAX_DATACENTER_NUM or less than 0");
         }
         if (machineId > MAX_MACHINE_NUM || machineId < 0) {
             throw new IllegalArgumentException("machineId can't be greater than MAX_MACHINE_NUM or less than 0");
         }
-        this.datacenterId = datacenterId;
+        this.dataCenterId = dataCenterId;
         this.machineId = machineId;
-    }
-
-    public static void main(String args[]){
-        SnowFlake snowFlake = new SnowFlake(1,1);
-        for (int i=0;i<1000;i++){
-            long id = snowFlake.nextId();
-            System.out.println(id + "  ---> " + Long.toBinaryString(id));
-        }
     }
 
     /**
@@ -84,12 +86,12 @@ public class SnowFlake {
      * @return
      */
     public synchronized long nextId() {
-        long currStamp = getNewstmp();
-        if (currStamp < lastStmp) {
+        long currStamp = getNewTimeMillis();
+        if (currStamp < lastStamp) {
             throw new RuntimeException("Clock moved backwards.  Refusing to generate id");
         }
 
-        if (currStamp == lastStmp) {
+        if (currStamp == lastStamp) {
             //相同毫秒内，序列号自增
             sequence = (sequence + 1) & MAX_SEQUENCE;
             //同一毫秒的序列数已经达到最大,即此时在同一毫秒内产生了4096个sequence
@@ -102,10 +104,10 @@ public class SnowFlake {
             sequence = 0L;
         }
 
-        lastStmp = currStamp;
+        lastStamp = currStamp;
 
         return (currStamp - START_STAMP) << TIMESTMP_LEFT //时间戳部分
-                | datacenterId << DATACENTER_LEFT      //数据中心部分
+                | dataCenterId << DATACENTER_LEFT      //数据中心部分
                 | machineId << MACHINE_LEFT            //机器标识部分
                 | sequence;                            //序列号部分
     }
@@ -115,9 +117,9 @@ public class SnowFlake {
      * @return
      */
     private long getNextMill() {
-        long mill = getNewstmp();
-        while (mill <= lastStmp) {
-            mill = getNewstmp();
+        long mill = getNewTimeMillis();
+        while (mill <= lastStamp) {
+            mill = getNewTimeMillis();
         }
         return mill;
     }
@@ -126,7 +128,7 @@ public class SnowFlake {
      * 产生一个新的时间戳
      * @return
      */
-    private long getNewstmp() {
+    private long getNewTimeMillis() {
         return System.currentTimeMillis();
     }
 }

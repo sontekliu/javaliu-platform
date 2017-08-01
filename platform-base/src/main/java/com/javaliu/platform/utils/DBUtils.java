@@ -42,7 +42,7 @@ public class DBUtils {
     /**
      * 关闭数据库连接
      */
-    public static void closeConnection(){
+    private static void closeConnection(){
         Connection connection = ConnectionContextHook.get();
         DbUtils.closeQuietly(connection);
     }

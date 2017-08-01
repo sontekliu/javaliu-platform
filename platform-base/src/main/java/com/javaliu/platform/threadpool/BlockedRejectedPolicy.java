@@ -10,7 +10,7 @@ import java.util.concurrent.ThreadPoolExecutor;
  * @author javaliu
  * @date   2016.12.28
  */
-public class BlockedPolicy implements RejectedExecutionHandler{
+public class BlockedRejectedPolicy implements RejectedExecutionHandler{
 
     @Override
     public void rejectedExecution(Runnable r, ThreadPoolExecutor executor) {
