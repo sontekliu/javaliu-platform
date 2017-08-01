@@ -14,5 +14,23 @@ package com.javaliu.platform;
  */
 public class Global {
 
+    /**
+     * 本系统默认编码
+     */
     public static final String DEFAULT_ENCODING = "UTF-8";
+
+    /**
+     * 获取常量值 ${fns:getConst()}
+     * @param field
+     * @return
+     */
+    public static Object getConst(String field){
+        Object object = null;
+        try {
+            object = Global.class.getField(field).get(null);
+        } catch (Exception e) {
+            //发生异常代表无此属性
+        }
+        return object;
+    }
 }
