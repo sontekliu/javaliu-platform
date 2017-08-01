@@ -1,2 +1,6 @@
-# javaliu-platform
-个人平台项目，包括如下几个模块：记账系统,博客系统......
+# Javaliu平台项目:
+#### 1. platform-parent  Maven 聚合各个模块
+#### 2. platform-base    基础模块，主要是一些通用的公共方法
+#### 3. platform-sdk     第三方的SDK接入，以及本平台暴露的通用接口
+#### 4. platform-web     主要的业务逻辑代码
+

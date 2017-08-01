@@ -13,4 +13,6 @@ package com.javaliu.platform;
  * <br> 版 本：V1.0
  */
 public class Global {
+
+    public static final String DEFAULT_ENCODING = "UTF-8";
 }
