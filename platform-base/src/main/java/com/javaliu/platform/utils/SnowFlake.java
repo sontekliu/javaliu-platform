@@ -59,16 +59,24 @@ public class SnowFlake {
     private long sequence = 0L; //序列号
     private long lastStamp = -1L;//上一次时间戳
 
-    private static final SnowFlake SNOW_FLAKE_INSTANCE = new SnowFlake(1,1);
-
+    /**
+     * 获取雪花算法实例
+     * @return
+     */
     public static SnowFlake getInstance(){
-        return SNOW_FLAKE_INSTANCE;
+        return SnowFlakeHolder.SNOWFLAKE_INSTANCE;
     }
 
-    private SnowFlake(){
+    /**
+     * 构造方法私有化
+     */
+    private SnowFlake(){ }
 
-    }
-
+    /**
+     * 构造方法私有化
+     * @param dataCenterId
+     * @param machineId
+     */
     private SnowFlake(long dataCenterId, long machineId) {
         if (dataCenterId > MAX_DATACENTER_NUM || dataCenterId < 0) {
             throw new IllegalArgumentException("datacenterId can't be greater than MAX_DATACENTER_NUM or less than 0");
@@ -78,6 +86,10 @@ public class SnowFlake {
         }
         this.dataCenterId = dataCenterId;
         this.machineId = machineId;
+    }
+
+    private static class SnowFlakeHolder{
+        private static final SnowFlake SNOWFLAKE_INSTANCE = new SnowFlake(1, 1);
     }
 
     /**
