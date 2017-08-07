@@ -5,11 +5,12 @@ import com.javaliu.platform.common.BaseEntity;
 /**
  * 用户实体
  */
-public class User extends BaseEntity{
+public class User extends BaseEntity {
     private long id;
     private String code;
     private String name;
     private String email;
+    private String headerPic;
     private String password;
     private String status;
     private int sex;
@@ -47,6 +48,14 @@ public class User extends BaseEntity{
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getHeaderPic() {
+        return headerPic;
+    }
+
+    public void setHeaderPic(String headerPic) {
+        this.headerPic = headerPic;
     }
 
     public String getPassword() {
