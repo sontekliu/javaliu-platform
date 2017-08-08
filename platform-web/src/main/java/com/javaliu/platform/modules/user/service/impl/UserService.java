@@ -1,0 +1,35 @@
+package com.javaliu.platform.modules.user.service.impl;
+
+import com.javaliu.platform.modules.user.dao.UserDao;
+import com.javaliu.platform.modules.user.exception.UserException;
+import com.javaliu.platform.modules.user.service.IUserService;
+import com.javaliu.platform.utils.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class UserService implements IUserService{
+
+    /**
+     * 日志记录器
+     */
+    private static final Logger logger = LoggerFactory.getLogger(UserService.class);
+
+    @Autowired
+    private UserDao userDao;
+
+    @Override
+    public boolean userExist(String email) throws UserException{
+        if(StringUtils.isBlank(email)){
+            throw new NullPointerException("email 不能为空");
+        }
+        boolean b = false;
+        int count = userDao.findUserCount(email);
+        if(0 != count){
+            b = true;
+        }
+        return b;
+    }
+}

@@ -5,6 +5,12 @@
  */
 package com.javaliu.platform;
 
+import com.google.common.collect.Maps;
+import com.javaliu.platform.utils.PropertiesUtils;
+import com.javaliu.platform.utils.StringUtils;
+
+import java.util.Map;
+
 /**
  * <br> 类 名：Global
  * <br> 描 述：全局变量
@@ -15,9 +21,32 @@ package com.javaliu.platform;
 public class Global {
 
     /**
+     * 保存全局属性值
+     */
+    private static Map<String, String> map = Maps.newHashMap();
+
+    /**
      * 本系统默认编码
      */
     public static final String DEFAULT_ENCODING = "UTF-8";
+
+    /**
+     *  是／否
+     */
+    public static final int YES = 1;
+    public static final int NO = 0;
+
+    /**
+     *  显示／隐藏
+     */
+    public static final String SHOW = "1";
+    public static final String HIDE = "0";
+
+    /**
+     * 对／错
+     */
+    public static final boolean TRUE = true;
+    public static final boolean FALSE = false;
 
     /**
      * 获取常量值 ${fns:getConst()}
@@ -32,5 +61,18 @@ public class Global {
             //发生异常代表无此属性
         }
         return object;
+    }
+
+    /**
+     * 获取配置
+     * @see ${fns:getConfig('adminPath')}
+     */
+    public static String getConfig(String key) {
+        String value = map.get(key);
+        if (value == null){
+            value = PropertiesUtils.INSTANCE.getProperty(key);
+            map.put(key, value != null ? value : StringUtils.EMPTY);
+        }
+        return value;
     }
 }

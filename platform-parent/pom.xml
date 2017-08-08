@@ -38,6 +38,8 @@
         <commons-log.version>1.1.1</commons-log.version>
         <!-- commons jar end -->
 
+        <guava.version>17.0</guava.version>
+
         <!-- 容器类相关的jar start -->
         <spring.version>4.2.9.RELEASE</spring.version>
         <aop.version>1.8.0</aop.version>
@@ -273,6 +275,12 @@
                 <groupId>com.alibaba</groupId>
                 <artifactId>druid</artifactId>
                 <version>${druid.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
