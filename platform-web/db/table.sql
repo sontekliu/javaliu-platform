@@ -5,6 +5,7 @@ CREATE TABLE `sys_user` (
   `code` varchar(64) DEFAULT NULL COMMENT '登录用户名',
   `name` varchar(64) DEFAULT NULL COMMENT '用户昵称',
   `password` char(64) DEFAULT NULL COMMENT '密码',
+  `salt`  CHAR(6) NOT NULL COMMENT '盐',
   `sex` int DEFAULT '0' COMMENT '性别',
   `year` int DEFAULT NULL COMMENT '年份',
   `month` int DEFAULT NULL COMMENT '月份',

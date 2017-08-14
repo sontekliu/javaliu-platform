@@ -6,11 +6,11 @@
 package com.javaliu.platform.modules.auth;
 
 /**
- * <br> 类 名：UserConstant
- * <br> 描 述：用户模块的常量类
+ * <br> 类 名：AuthConstant
+ * <br> 描 述：认证模块的常量类
  * <br> 作 者：javaliu
  * <br> 创 建：2017年08月01日
  * <br> 版 本：V1.0
  */
-public class UserConstant {
+public class AuthConstant {
 }

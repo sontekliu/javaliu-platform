@@ -36,4 +36,48 @@ public class UserDao extends BaseDao<User>{
         }
         return count;
     }
+
+    /**
+     * 根据用户邮箱查询用户信息
+     * @param email
+     * @return
+     */
+    public User findUserByEmail(String email){
+        StringBuffer str = new StringBuffer();
+        str.append("SELECT id, email, code, name, header_pic AS headerPic, password, salt, status, ")
+           .append("sex, year, month, day, delete_flag AS deleteFlag, create_by AS createBy, create_time AS createTime, ")
+           .append("update_by AS updateBy, update_time AS updateTime FROM sys_user WHERE email = ? ")
+           .append(" AND delete_flag = ?");
+        Object[] params = new Object[]{email, Global.DELETE_FALSE};
+        User user = null;
+        try {
+            user = this.findOne(str.toString(), User.class, params);
+        } catch (SQLException e) {
+            logger.error("根据 email {} 查询用户信息异常", email, e);
+            throw new UserException("根据 email "+ email +" 查询用户信息异常", e);
+        }
+        return user;
+    }
+
+    /**
+     * 根据登陆用户名称查询用户信息
+     * @param code
+     * @return
+     */
+    public User findUserByCode(String code){
+        StringBuffer str = new StringBuffer();
+        str.append("SELECT id, email, code, name, header_pic AS headerPic, password, salt, status, ")
+           .append("sex, year, month, day, delete_flag AS deleteFlag, create_by AS createBy, create_time AS createTime, ")
+           .append("update_by AS updateBy, update_time AS updateTime FROM sys_user WHERE code = ? ")
+           .append(" AND delete_flag = ?");
+        Object[] params = new Object[]{code, Global.DELETE_FALSE};
+        User user = null;
+        try {
+            user = this.findOne(str.toString(), User.class, params);
+        } catch (SQLException e) {
+            logger.error("根据 code {} 查询用户信息异常", code, e);
+            throw new UserException("根据 code "+ code +" 查询用户信息异常", e);
+        }
+        return user;
+    }
 }

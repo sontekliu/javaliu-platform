@@ -12,6 +12,7 @@ public class User extends BaseEntity {
     private String email;
     private String headerPic;
     private String password;
+    private String salt;
     private String status;
     private int sex;
     private int year;
@@ -64,6 +65,14 @@ public class User extends BaseEntity {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt;
     }
 
     public String getStatus() {
