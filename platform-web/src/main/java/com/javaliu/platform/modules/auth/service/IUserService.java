@@ -1,4 +1,4 @@
-package com.javaliu.platform.modules.user.service;
+package com.javaliu.platform.modules.auth.service;
 
 public interface IUserService {
 

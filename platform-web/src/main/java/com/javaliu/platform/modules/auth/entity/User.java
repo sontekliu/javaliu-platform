@@ -1,4 +1,4 @@
-package com.javaliu.platform.modules.user.entity;
+package com.javaliu.platform.modules.auth.entity;
 
 import com.javaliu.platform.common.BaseEntity;
 

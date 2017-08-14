@@ -1,4 +1,4 @@
-package com.javaliu.platform.modules.user.web;
+package com.javaliu.platform.modules.auth.web;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,8 +1,8 @@
-package com.javaliu.platform.modules.user.service.impl;
+package com.javaliu.platform.modules.auth.service.impl;
 
-import com.javaliu.platform.modules.user.dao.UserDao;
-import com.javaliu.platform.modules.user.exception.UserException;
-import com.javaliu.platform.modules.user.service.IUserService;
+import com.javaliu.platform.modules.auth.dao.UserDao;
+import com.javaliu.platform.modules.auth.exception.UserException;
+import com.javaliu.platform.modules.auth.service.IUserService;
 import com.javaliu.platform.utils.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

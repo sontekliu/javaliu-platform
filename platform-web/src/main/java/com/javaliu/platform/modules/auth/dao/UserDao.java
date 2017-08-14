@@ -1,8 +1,9 @@
-package com.javaliu.platform.modules.user.dao;
+package com.javaliu.platform.modules.auth.dao;
 
+import com.javaliu.platform.Global;
 import com.javaliu.platform.common.BaseDao;
-import com.javaliu.platform.modules.user.entity.User;
-import com.javaliu.platform.modules.user.exception.UserException;
+import com.javaliu.platform.modules.auth.entity.User;
+import com.javaliu.platform.modules.auth.exception.UserException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
@@ -24,9 +25,10 @@ public class UserDao extends BaseDao<User>{
      */
     public int findUserCount(String email){
         int count = 0;
-        String sql = "SELECT count(*) AS count FROM sys_user WHERE email = ? AND del";
+        String sql = "SELECT count(*) AS count FROM sys_user WHERE email = ? AND delete_flag = ?";
+        Object[] params = new Object[]{email, Global.DELETE_FALSE};
         try {
-            Object object = this.findby(sql, "count", email);
+            Object object = this.findby(sql, "count", params);
             count = Integer.parseInt(object.toString());
         } catch (SQLException e) {
             logger.error("根据 email {} 查询用户数量异常", email, e);

@@ -43,10 +43,10 @@ public class Global {
     public static final String HIDE = "0";
 
     /**
-     * 对／错
+     * 已删除／未删除
      */
-    public static final boolean TRUE = true;
-    public static final boolean FALSE = false;
+    public static final String DELETE_TRUE = "1";
+    public static final String DELETE_FALSE = "0";
 
     /**
      * 获取常量值 ${fns:getConst()}

@@ -11,9 +11,10 @@ CREATE TABLE `sys_user` (
   `day` int DEFAULT NULL COMMENT '日期',
   `header_pic` VARCHAR(64) DEFAULT NULL COMMENT '头像地址',
   `status` char(1) DEFAULT NULL COMMENT '状态',
+  `delete_flag` char(1) DEFAULT '0' COMMENT '删除标识',
   `createBy` bigint(32) DEFAULT NULL COMMENT '创建人',
-  `createTime` timestamp NULL DEFAULT NULL COMMENT '创建时间',
+  `createTime` datetime NULL DEFAULT NULL COMMENT '创建时间',
   `updateBy` bigint(32) DEFAULT NULL COMMENT '修改人',
-  `updateTime` timestamp NULL DEFAULT NULL COMMENT '修改人',
+  `updateTime` datetime NULL DEFAULT NULL COMMENT '修改人',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

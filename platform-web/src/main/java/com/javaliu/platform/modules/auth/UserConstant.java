@@ -3,7 +3,7 @@
  * <br> 文件名：UserConstant.java
  * <br> Copyright 2017 Javaliu
  */
-package com.javaliu.platform.modules.user;
+package com.javaliu.platform.modules.auth;
 
 /**
  * <br> 类 名：UserConstant

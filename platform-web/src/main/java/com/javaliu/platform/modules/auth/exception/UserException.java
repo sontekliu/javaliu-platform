@@ -1,4 +1,4 @@
-package com.javaliu.platform.modules.user.exception;
+package com.javaliu.platform.modules.auth.exception;
 
 /**
  * 用户模块异常类
