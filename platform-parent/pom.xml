@@ -33,9 +33,7 @@
         <commons-compress.version>1.4.1</commons-compress.version>
         <commons-fileupload.version>1.3.1</commons-fileupload.version>
         <commons-codec.version>1.10</commons-codec.version>
-        <commons-email.version>1.4</commons-email.version>
         <commons-dbutils.version>1.6</commons-dbutils.version>
-        <commons-log.version>1.1.1</commons-log.version>
         <!-- commons jar end -->
 
         <guava.version>17.0</guava.version>
@@ -44,10 +42,6 @@
         <spring.version>4.2.9.RELEASE</spring.version>
         <aop.version>1.8.0</aop.version>
         <!-- 容器类相关的jar end -->
-
-        <!-- 操作Excel的 JAR start -->
-        <poi.version>3.10-FINAL</poi.version>
-        <!-- 操作Excel的 JAR end -->
 
         <!-- 处理JSON的JAR start -->
         <fastjson.version>1.2.29</fastjson.version>
@@ -64,21 +58,6 @@
         <mysql-driver.version>5.1.40</mysql-driver.version>
         <!-- 操作数据库相关的jar end -->
 
-        <cxf.version>3.1.9</cxf.version>
-
-        <!-- 操作XML 文件的JAR start -->
-        <dom4j.version>1.6</dom4j.version>
-        <!-- 操作XML 文件的JAR end -->
-
-        <httpclient.version>4.3.2</httpclient.version>
-        <kaptcha.version>0.0.9</kaptcha.version>
-
-        <!-- WEB 方面的 jar -->
-        <servlet.version>3.0.1</servlet.version>
-        <taglib.version>1.1.2</taglib.version>
-        <jstl.version>1.2</jstl.version>
-        <jsp-api.version>2.1</jsp-api.version>
-        <!-- WEB 方面的 jar end -->
     </properties>
 
     <dependencyManagement>
@@ -139,16 +118,6 @@
                 <groupId>commons-codec</groupId>
                 <artifactId>commons-codec</artifactId>
                 <version>${commons-codec.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.commons</groupId>
-                <artifactId>commons-email</artifactId>
-                <version>${commons-email.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>commons-logging</groupId>
-                <artifactId>commons-logging</artifactId>
-                <version>${commons-log.version}</version>
             </dependency>
             <dependency>
                 <groupId>commons-dbutils</groupId>
@@ -213,40 +182,12 @@
                 <artifactId>spring-tx</artifactId>
                 <version>${spring.version}</version>
             </dependency>
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-orm</artifactId>
-                <version>${spring.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-oxm</artifactId>
-                <version>${spring.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-expression</artifactId>
-                <version>${spring.version}</version>
-            </dependency>
             <!-- spring end -->
             <dependency>
                 <groupId>org.aspectj</groupId>
                 <artifactId>aspectjweaver</artifactId>
                 <version>${aop.version}</version>
             </dependency>
-
-            <!-- poi start -->
-            <dependency>
-                <groupId>org.apache.poi</groupId>
-                <artifactId>poi</artifactId>
-                <version>${poi.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.poi</groupId>
-                <artifactId>poi-ooxml</artifactId>
-                <version>${poi.version}</version>
-            </dependency>
-            <!-- poi end -->
 
             <!-- json start -->
             <dependency>
@@ -326,6 +267,4 @@
             </plugins>
         </pluginManagement>
     </build>
-
-
 </project>
