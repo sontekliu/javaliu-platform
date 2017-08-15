@@ -1,13 +1,21 @@
 package com.javaliu.platform.common.realm;
 
+import com.javaliu.platform.modules.auth.entity.User;
+import com.javaliu.platform.modules.auth.service.IUserService;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
+import org.apache.shiro.authc.SimpleAuthenticationInfo;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
+import org.apache.shiro.util.ByteSource;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class UserAuthRealm extends AuthorizingRealm{
+
+    @Autowired
+    private IUserService userService;
     /**
      * 授权
      * @param principals
@@ -26,6 +34,14 @@ public class UserAuthRealm extends AuthorizingRealm{
      */
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
-        return null;
+        String username = (String)token.getPrincipal();
+        char[] password = (char[])token.getCredentials();
+        System.out.println(username);
+        System.out.println(password);
+        User user = new User();//userService.findUserByCode(username);
+        user.setCode(username);
+        user.setPassword(new String(password));
+        return new SimpleAuthenticationInfo(user.getCode(), user.getPassword(),
+                ByteSource.Util.bytes("123"),getName());
     }
 }

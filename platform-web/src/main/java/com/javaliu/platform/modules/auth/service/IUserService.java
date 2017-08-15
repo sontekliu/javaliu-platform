@@ -1,5 +1,7 @@
 package com.javaliu.platform.modules.auth.service;
 
+import com.javaliu.platform.modules.auth.entity.User;
+
 public interface IUserService {
 
     /**
@@ -8,4 +10,11 @@ public interface IUserService {
      * @return
      */
     public boolean userExist(String email);
+
+    /**
+     * 根据用户名称查找用户
+     * @param code
+     * @return
+     */
+    public User findUserByCode(String code);
 }

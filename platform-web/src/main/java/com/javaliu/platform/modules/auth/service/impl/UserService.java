@@ -1,6 +1,7 @@
 package com.javaliu.platform.modules.auth.service.impl;
 
 import com.javaliu.platform.modules.auth.dao.UserDao;
+import com.javaliu.platform.modules.auth.entity.User;
 import com.javaliu.platform.modules.auth.exception.UserException;
 import com.javaliu.platform.modules.auth.service.IUserService;
 import com.javaliu.platform.utils.StringUtils;
@@ -31,5 +32,10 @@ public class UserService implements IUserService{
             b = true;
         }
         return b;
+    }
+
+    @Override
+    public User findUserByCode(String code) {
+        return userDao.findUserByCode(code);
     }
 }

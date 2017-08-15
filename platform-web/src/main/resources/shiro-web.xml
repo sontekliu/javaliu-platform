@@ -9,7 +9,18 @@
     <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
         <property name="realm" ref="userAuthRealm" />
     </bean>
+
+    <bean id="formAuthenticationFilter"
+          class="org.apache.shiro.web.filter.authc.FormAuthenticationFilter">
+        <property name="loginUrl" value="/index"/>
+    </bean>
     <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
         <property name="securityManager" ref="securityManager" />
+        <property name="loginUrl" value="/index"/>
+        <property name="filterChainDefinitions">
+            <value>
+                /success = authc[admin]
+            </value>
+        </property>
     </bean>
 </beans>
