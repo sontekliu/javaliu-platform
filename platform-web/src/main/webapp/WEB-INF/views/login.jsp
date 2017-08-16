@@ -1,4 +1,4 @@
-<%--
+<%@ page import="org.apache.shiro.web.filter.authc.FormAuthenticationFilter" %><%--
   Created by IntelliJ IDEA.
   User: sontek
   Date: 2017/8/15
@@ -19,5 +19,6 @@
     <input type="password" name="password"> <br>
     <input type="submit" name="submit" value="登陆"> <br>
 </form>
+<%=request.getAttribute(FormAuthenticationFilter.DEFAULT_ERROR_KEY_ATTRIBUTE_NAME)%>
 </body>
 </html>

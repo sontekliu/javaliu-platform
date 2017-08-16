@@ -220,9 +220,9 @@ public class BaseDao<T> {
         Connection connection = DBUtils.getConnection(dataSource);
         Object object = null;
         if(null == params || params.length == 0){
-            object = queryRunner.query(sql, new ScalarHandler(columnName));
+            object = queryRunner.query(connection, sql, new ScalarHandler(columnName));
         }else{
-            object = queryRunner.query(sql, new ScalarHandler(columnName), params);
+            object = queryRunner.query(connection, sql, new ScalarHandler(columnName), params);
         }
         return object;
     }
@@ -265,9 +265,9 @@ public class BaseDao<T> {
         Connection connection = DBUtils.getConnection(dataSource);
         int index = 0;
         if(null == params || params.length == 0){
-            index = queryRunner.update(sql);
+            index = queryRunner.update(connection, sql);
         }else{
-            index = queryRunner.update(sql, params);
+            index = queryRunner.update(connection, sql, params);
         }
         return index;
     }
@@ -308,7 +308,7 @@ public class BaseDao<T> {
         Connection connection = DBUtils.getConnection(dataSource);
         int[] index = null;
         if(null != params){
-            index = queryRunner.batch(sql, params);
+            index = queryRunner.batch(connection, sql, params);
         }
         return index;
     }
@@ -328,9 +328,9 @@ public class BaseDao<T> {
         Connection connection = DBUtils.getConnection(dataSource);
         T object = null;
         if(null == params || params.length == 0){
-            object = (T)queryRunner.insert(sql, new BeanHandler<T>(entityClass));
+            object = (T)queryRunner.insert(connection, sql, new BeanHandler<T>(entityClass));
         }else{
-            object = (T)queryRunner.insert(sql, new BeanHandler<T>(entityClass), params);
+            object = (T)queryRunner.insert(connection, sql, new BeanHandler<T>(entityClass), params);
         }
         return object;
     }
@@ -374,7 +374,7 @@ public class BaseDao<T> {
         Connection connection = DBUtils.getConnection(dataSource);
         T obj = null;
         if(null != params){
-            obj = (T) queryRunner.insertBatch(sql, new BeanHandler<T>(entityClass), params);
+            obj = (T) queryRunner.insertBatch(connection, sql, new BeanHandler<T>(entityClass), params);
         }
         return obj;
     }

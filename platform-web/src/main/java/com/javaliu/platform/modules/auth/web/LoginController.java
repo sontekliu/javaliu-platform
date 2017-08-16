@@ -1,6 +1,8 @@
 package com.javaliu.platform.modules.auth.web;
 
+import com.javaliu.platform.web.BaseController;
 import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.ExcessiveAttemptsException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
@@ -11,9 +13,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @Controller
-public class LoginController {
+public class LoginController extends BaseController{
 
-    @RequestMapping(value = {"", "/", "/index"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"", "/", "/login"}, method = RequestMethod.GET)
     public String redirectToLogin(){
         return "login";
     }
@@ -24,9 +26,11 @@ public class LoginController {
         String password = request.getParameter("password");
         UsernamePasswordToken token = new UsernamePasswordToken(username, password);
         Subject subject = SecurityUtils.getSubject();
-        System.out.println(username);
-        System.out.println(password);
-        subject.login(token);
+        try {
+            subject.login(token);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         return "success";
     }
 }

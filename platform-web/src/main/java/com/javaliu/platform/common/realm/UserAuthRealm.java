@@ -2,6 +2,7 @@ package com.javaliu.platform.common.realm;
 
 import com.javaliu.platform.modules.auth.entity.User;
 import com.javaliu.platform.modules.auth.service.IUserService;
+import com.javaliu.platform.security.Digests;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
@@ -38,10 +39,11 @@ public class UserAuthRealm extends AuthorizingRealm{
         char[] password = (char[])token.getCredentials();
         System.out.println(username);
         System.out.println(password);
-        User user = new User();//userService.findUserByCode(username);
-        user.setCode(username);
-        user.setPassword(new String(password));
+        User user = userService.findUserByCode(username);
+        String newpassword = Digests.password(new String(password), user.getSalt());
+        System.out.println(newpassword);
+        System.out.println(user.getPassword());
         return new SimpleAuthenticationInfo(user.getCode(), user.getPassword(),
-                ByteSource.Util.bytes("123"),getName());
+                ByteSource.Util.bytes(user.getSalt()),getName());
     }
 }

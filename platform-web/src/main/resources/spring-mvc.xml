@@ -12,6 +12,8 @@
 	http://www.springframework.org/schema/aop
 	http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
 
+	<description>Spring MVC Configuration</description>
+
 	<mvc:annotation-driven>
 		<mvc:message-converters register-defaults="true">
 			<!-- 将StringHttpMessageConverter的默认编码设为UTF-8 -->

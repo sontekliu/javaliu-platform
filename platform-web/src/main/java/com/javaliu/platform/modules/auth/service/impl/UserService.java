@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class UserService implements IUserService{
@@ -37,5 +38,14 @@ public class UserService implements IUserService{
     @Override
     public User findUserByCode(String code) {
         return userDao.findUserByCode(code);
+    }
+
+    @Transactional
+    @Override
+    public void addUser(User user) {
+        if(null == user){
+            throw new UserException("用户信息不能为空");
+        }
+        userDao.saveOne(user);
     }
 }

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+    <description>Shiro Configuration</description>
+
+    <bean id="credentialsMatcher" class="com.javaliu.platform.common.realm.CustomCredentialsMatcher" />
+    <bean id="userAuthRealm" class="com.javaliu.platform.common.realm.UserAuthRealm">
+        <property name="credentialsMatcher" ref="credentialsMatcher" />
+    </bean>
+
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="realm" ref="userAuthRealm" />
+    </bean>
+
+    <!-- Shiro权限过滤过滤器定义 -->
+    <bean name="shiroFilterChainDefinitions" class="java.lang.String">
+        <constructor-arg>
+            <value>
+                /static/** = anon
+                ${frontPath}/** = anon
+                ${adminPath}/** = user
+            </value>
+        </constructor-arg>
+    </bean>
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <property name="securityManager" ref="securityManager" />
+        <property name="loginUrl" value="/login"/>
+        <property name="filterChainDefinitions" ref="shiroFilterChainDefinitions" />
+    </bean>
+</beans>

@@ -17,4 +17,10 @@ public interface IUserService {
      * @return
      */
     public User findUserByCode(String code);
+
+    /**
+     * 添加用户信息
+     * @param user
+     */
+    public void addUser(User user);
 }

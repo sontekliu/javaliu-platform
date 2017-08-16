@@ -80,4 +80,27 @@ public class UserDao extends BaseDao<User>{
         }
         return user;
     }
+
+    /**
+     * 添加用户信息
+     * @param  user
+     * @return
+     */
+    public User saveOne(User user){
+        StringBuffer str = new StringBuffer();
+        str.append("INSERT INTO sys_user (id, email, code, name, header_pic, password, salt, status, ");
+        str.append("sex, year, month, day, delete_flag, create_by, create_time, update_by, ");
+        str.append("update_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        Object[] params = new Object[]{user.getId(), user.getEmail(), user.getCode(), user.getName(),
+        user.getHeaderPic(), user.getPassword(), user.getSalt(), user.getStatus(), user.getSex(),
+        user.getYear(), user.getMonth(), user.getDay(), user.getDeleteFlag(), user.getCreateBy(),
+        user.getCreateTime(), user.getUpdateBy(), user.getUpdateTime()};
+        try {
+            user = this.insert(str.toString(), User.class, params);
+        } catch (SQLException e) {
+            logger.error("添加用户信息异常", e);
+            throw new UserException("添加用户信息异常", e);
+        }
+        return user;
+    }
 }
