@@ -37,12 +37,7 @@ public class UserAuthRealm extends AuthorizingRealm{
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
         String username = (String)token.getPrincipal();
         char[] password = (char[])token.getCredentials();
-        System.out.println(username);
-        System.out.println(password);
         User user = userService.findUserByCode(username);
-        String newpassword = Digests.password(new String(password), user.getSalt());
-        System.out.println(newpassword);
-        System.out.println(user.getPassword());
         return new SimpleAuthenticationInfo(user.getCode(), user.getPassword(),
                 ByteSource.Util.bytes(user.getSalt()),getName());
     }

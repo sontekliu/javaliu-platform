@@ -9,7 +9,11 @@
 
     <description>Shiro Configuration</description>
 
-    <bean id="credentialsMatcher" class="com.javaliu.platform.common.realm.CustomCredentialsMatcher" />
+    <bean id="credentialsMatcher" class="com.javaliu.platform.common.realm.CustomCredentialsMatcher">
+        <property name="hashAlgorithmName" value="SHA-1" />
+        <property name="hashIterations" value="100" />
+        <property name="storedCredentialsHexEncoded" value="true" />
+    </bean>
     <bean id="userAuthRealm" class="com.javaliu.platform.common.realm.UserAuthRealm">
         <property name="credentialsMatcher" ref="credentialsMatcher" />
     </bean>
