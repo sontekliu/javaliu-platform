@@ -64,4 +64,10 @@ public class UserController extends BaseController{
         userService.addUser(user);
         return "success";
     }
+
+    @RequestMapping(value = "test")
+    public String test(){
+
+        return "success";
+    }
 }

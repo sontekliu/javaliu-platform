@@ -28,7 +28,7 @@
             <value>
                 /static/** = anon
                 ${frontPath}/** = anon
-                ${adminPath}/** = user
+                ${adminPath}/** = anon
             </value>
         </constructor-arg>
     </bean>

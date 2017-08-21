@@ -13,6 +13,7 @@
 	http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
 
 	<description>Spring MVC Configuration</description>
+	<context:property-placeholder location="classpath:app.properties" ignore-unresolvable="true" />
 
 	<mvc:annotation-driven>
 		<mvc:message-converters register-defaults="true">
