@@ -1,5 +1,6 @@
 package com.javaliu.platform.utils;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.*;
 
 import java.util.HashMap;
@@ -29,7 +30,7 @@ public class CustomJsonUtils {
     public static String toJSONString(Object object, Map<Class, ObjectSerializer> clazz,
                                       SerializerFeature... features){
 
-        SerializeWriter out = new SerializeWriter(features);
+        SerializeWriter out = new SerializeWriter(null, JSON.DEFAULT_GENERATE_FEATURE, features);
         try {
             //此处必须new一个SerializeConfig,防止修改默认的配置
             JSONSerializer serializer = new JSONSerializer(out, new SerializeConfig());

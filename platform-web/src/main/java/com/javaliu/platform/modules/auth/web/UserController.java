@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.Date;
 
 @RestController
-@RequestMapping(value = "/user/")
+@RequestMapping(value = "${adminPath}/user/")
 public class UserController extends BaseController{
 
     /**

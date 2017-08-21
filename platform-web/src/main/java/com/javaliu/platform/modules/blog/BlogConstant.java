@@ -5,6 +5,8 @@
  */
 package com.javaliu.platform.modules.blog;
 
+import com.javaliu.platform.Global;
+
 /**
  * <br> 类 名：BlogConstant
  * <br> 描 述：博客模块常量类
@@ -12,5 +14,5 @@ package com.javaliu.platform.modules.blog;
  * <br> 创 建：2017年08月01日
  * <br> 版 本：V1.0
  */
-public class BlogConstant {
+public class BlogConstant extends Global{
 }
