@@ -63,6 +63,7 @@
         <jstl.version>1.2</jstl.version>
         <jsp-api.version>2.1</jsp-api.version>
         <!-- WEB 方面的 jar end -->
+        <pagehelper.version>5.0.0</pagehelper.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -267,6 +268,24 @@
                 <groupId>taglibs</groupId>
                 <artifactId>standard</artifactId>
                 <version>${taglib.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper</artifactId>
+                <version>${pagehelper.version}</version>
+            </dependency>
+
+            <!-- 验证码 -->
+            <dependency>
+                <groupId>com.github.penggle</groupId>
+                <artifactId>kaptcha</artifactId>
+                <version>2.3.2</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>javax.servlet-api</artifactId>
+                        <groupId>javax.servlet</groupId>
+                    </exclusion>
+                </exclusions>
             </dependency>
         </dependencies>
     </dependencyManagement>
