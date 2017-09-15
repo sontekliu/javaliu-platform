@@ -21,6 +21,11 @@ import java.util.Map;
 public class Global {
 
     /**
+     * 当前对象实例
+     */
+    private static Global global = new Global();
+
+    /**
      * 保存全局属性值
      */
     private static Map<String, String> map = Maps.newHashMap();
@@ -47,6 +52,30 @@ public class Global {
      */
     public static final String DELETE_TRUE = "1";
     public static final String DELETE_FALSE = "0";
+
+    /**
+     * 线程池中线程的最大值
+     */
+    public static String DEFAULT_THREAD_MAX_SIZE = "30";
+    /**
+     * 线程池的大小
+     */
+    public static String DEFAULT_THREAD_CORE_SIZE = "30";
+    /**
+     * 线程池中阻塞队列的大小
+     */
+    public static String DEFAULT_THREAD_QUEUE_SIZE = "100";
+    /**
+     * 空闲线程在线程池中所空闲的时间
+     */
+    public static String DEFAULT_THREAD_KEEP_TIME = "100";
+
+    /**
+     * 获取当前对象实例
+     */
+    public static Global getInstance() {
+        return global;
+    }
 
     /**
      * 获取常量值 ${fns:getConst()}

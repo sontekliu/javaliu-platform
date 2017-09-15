@@ -64,6 +64,7 @@
         <jsp-api.version>2.1</jsp-api.version>
         <!-- WEB 方面的 jar end -->
         <pagehelper.version>5.0.0</pagehelper.version>
+        <httpclient.version>4.5.3</httpclient.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -273,6 +274,16 @@
                 <groupId>com.github.pagehelper</groupId>
                 <artifactId>pagehelper</artifactId>
                 <version>${pagehelper.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>${httpclient.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpmime</artifactId>
+                <version>${httpclient.version}</version>
             </dependency>
 
             <!-- 验证码 -->
