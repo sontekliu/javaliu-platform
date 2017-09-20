@@ -1,10 +1,4 @@
-<%@ page import="org.apache.shiro.web.filter.authc.FormAuthenticationFilter" %><%--
-  Created by IntelliJ IDEA.
-  User: sontek
-  Date: 2017/8/15
-  Time: 下午11:12
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="org.apache.shiro.web.filter.authc.FormAuthenticationFilter" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     String path = request.getContextPath();

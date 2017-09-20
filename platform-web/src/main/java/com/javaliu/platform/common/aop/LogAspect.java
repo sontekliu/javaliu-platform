@@ -1,8 +1,3 @@
-/**
- * <br> 项目名：elecontract
- * <br> 文件名：LogAspect.java
- * <br> Copyright 2017 国信嘉宁数据技术有限公司
- */
 package com.javaliu.platform.common.aop;
 
 import com.javaliu.platform.common.BaseEntity;
