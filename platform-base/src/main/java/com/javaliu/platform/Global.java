@@ -54,21 +54,26 @@ public class Global {
     public static final String DELETE_FALSE = "0";
 
     /**
+     * 每页显示条数
+     */
+    public static int DEFAULT_PAGE_SIZE = 10;
+
+    /**
      * 线程池中线程的最大值
      */
-    public static String DEFAULT_THREAD_MAX_SIZE = "30";
+    public static int DEFAULT_THREAD_MAX_SIZE = 30;
     /**
      * 线程池的大小
      */
-    public static String DEFAULT_THREAD_CORE_SIZE = "30";
+    public static int DEFAULT_THREAD_CORE_SIZE = 30;
     /**
      * 线程池中阻塞队列的大小
      */
-    public static String DEFAULT_THREAD_QUEUE_SIZE = "100";
+    public static int DEFAULT_THREAD_QUEUE_SIZE = 100;
     /**
      * 空闲线程在线程池中所空闲的时间
      */
-    public static String DEFAULT_THREAD_KEEP_TIME = "100";
+    public static int DEFAULT_THREAD_KEEP_TIME = 100;
 
     /**
      * 获取当前对象实例

@@ -6,18 +6,24 @@ import java.util.Date;
  * 实体基类
  */
 public class BaseEntity {
-    private long createBy;
+
+    // 表示未删除
+    public static final String DELETE_FALSE = "0";
+    // 表示已删除
+    public static final String DELETE_TRUE = "1";
+
+    private Long createBy;
     private Date createTime;
-    private long updateBy;
+    private Long updateBy;
     private Date updateTime;
     private String deleteFlag;
     private String remark;
 
-    public long getCreateBy() {
+    public Long getCreateBy() {
         return createBy;
     }
 
-    public void setCreateBy(long createBy) {
+    public void setCreateBy(Long createBy) {
         this.createBy = createBy;
     }
 
@@ -29,11 +35,11 @@ public class BaseEntity {
         this.createTime = createTime;
     }
 
-    public long getUpdateBy() {
+    public Long getUpdateBy() {
         return updateBy;
     }
 
-    public void setUpdateBy(long updateBy) {
+    public void setUpdateBy(Long updateBy) {
         this.updateBy = updateBy;
     }
 

@@ -15,7 +15,7 @@ public class PageThreadLocal {
     public static PageParam get(){
         PageParam pageParam = USER_ENTITY_THREAD_LOCAL.get();
         if(null == pageParam){
-            return new PageParam(1, Integer.parseInt(Global.getConfig("custom.page.page_size")));
+            return new PageParam(1, Global.DEFAULT_PAGE_SIZE);
         }
         return pageParam;
     }

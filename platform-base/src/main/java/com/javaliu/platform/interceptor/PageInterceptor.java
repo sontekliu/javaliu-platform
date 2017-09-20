@@ -1,7 +1,9 @@
 package com.javaliu.platform.interceptor;
 
 import com.javaliu.platform.Global;
+import com.javaliu.platform.threadlocal.IPThreadLocal;
 import com.javaliu.platform.threadlocal.PageThreadLocal;
+import com.javaliu.platform.utils.ServletUtils;
 import com.javaliu.platform.web.PageParam;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -42,6 +44,7 @@ public class PageInterceptor implements HandlerInterceptor {
         }
         PageParam pageParam = new PageParam(pageNow, pageSize);
         PageThreadLocal.set(pageParam);
+        IPThreadLocal.set(ServletUtils.getIpAddress(request));
         setParamNameAndValue(request);
         return true;
     }
@@ -71,5 +74,6 @@ public class PageInterceptor implements HandlerInterceptor {
     @Override
     public void afterCompletion(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, Exception e) throws Exception {
         PageThreadLocal.remove();
+        IPThreadLocal.remove();
     }
 }
