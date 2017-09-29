@@ -23,14 +23,13 @@ public class ThreadPool {
 		}
 	}
 	static{
-		String minSize = Global.DEFAULT_THREAD_CORE_SIZE;
-		String maxSize = Global.DEFAULT_THREAD_MAX_SIZE;
-		String keepTime = Global.DEFAULT_THREAD_KEEP_TIME;
-		String queueSize = Global.DEFAULT_THREAD_QUEUE_SIZE;
+		int minSize = Global.DEFAULT_THREAD_CORE_SIZE;
+		int maxSize = Global.DEFAULT_THREAD_MAX_SIZE;
+		int keepTime = Global.DEFAULT_THREAD_KEEP_TIME;
+		int queueSize = Global.DEFAULT_THREAD_QUEUE_SIZE;
 
-		executor = new ThreadPoolExecutor(Integer.parseInt(minSize), Integer.parseInt(maxSize),
-				Integer.parseInt(keepTime), TimeUnit.SECONDS,
-                new ArrayBlockingQueue<Runnable>(Integer.parseInt(queueSize)),
+		executor = new ThreadPoolExecutor(minSize, maxSize, keepTime, TimeUnit.SECONDS,
+                new ArrayBlockingQueue<Runnable>(queueSize),
                 new BlockedRejectedPolicy());
 		executor.allowCoreThreadTimeOut(true);
 	}

@@ -39,7 +39,7 @@
         <guava.version>17.0</guava.version>
 
         <!-- 容器类相关的jar start -->
-        <spring.version>4.2.9.RELEASE</spring.version>
+        <spring.version>4.3.11.RELEASE</spring.version>
         <aop.version>1.8.0</aop.version>
         <!-- 容器类相关的jar end -->
 
