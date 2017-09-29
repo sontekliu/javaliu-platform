@@ -1,0 +1,1 @@
+<link type="text/css" rel="stylesheet" href="${ctxStatic}/css/base.css">
