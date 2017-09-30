@@ -14,3 +14,8 @@
     2. 系统日志模块
     3. 博客管理模块
     4. 评论管理模块
+
+### 参考模板
+http://www.erdangjiade.com/modals/43/4380/demo/
+http://www.erdangjiade.com/modals/5/528/demo/design.html
+http://www.layui.com/doc/element/layout.html

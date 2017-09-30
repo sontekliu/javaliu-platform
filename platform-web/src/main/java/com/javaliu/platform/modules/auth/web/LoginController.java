@@ -24,13 +24,13 @@ public class LoginController extends BaseController{
     public String login(HttpServletRequest request, HttpServletResponse response){
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        UsernamePasswordToken token = new UsernamePasswordToken(username, password);
+/*        UsernamePasswordToken token = new UsernamePasswordToken(username, password);
         Subject subject = SecurityUtils.getSubject();
         try {
             subject.login(token);
         }catch (Exception e){
             e.printStackTrace();
-        }
-        return "success";
+        }*/
+        return "admin/main";
     }
 }
