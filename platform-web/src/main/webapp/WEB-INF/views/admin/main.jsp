@@ -14,7 +14,7 @@
         <div class="layui-logo">JavaLiu 博客后台管理</div>
    </div>
 
-   <div class="layui-side layui-bg-green">
+   <div class="layui-side layui-bg-black">
        <div class="layui-side-scroll">
             <ul class="layui-nav layui-nav-tree">
                 <li class="layui-nav-item layui-nav-itemed"><a href="#">博客管理</a></li>
