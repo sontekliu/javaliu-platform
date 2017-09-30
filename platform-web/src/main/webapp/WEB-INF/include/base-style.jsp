@@ -1,1 +1,1 @@
-<link type="text/css" rel="stylesheet" href="${ctxStatic}/css/base.css">
+<link type="text/css" rel="stylesheet" href="${ctxStatic}/lib/layui/css/layui.css">

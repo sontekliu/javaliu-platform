@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>后台登录页面</title>
-    <%@ include file="/WEB-INF/include/base-style.jsp"%>
+    <link type="text/css" rel="stylesheet" href="${ctxStatic}/css/base.css">
     <link rel="stylesheet" href="${ctxStatic}/css/login.css" />
 </head>
 <body>
