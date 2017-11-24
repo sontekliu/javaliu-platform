@@ -1,7 +1,7 @@
 package com.javaliu.platform.modules.auth.dao;
 
 import com.javaliu.platform.common.BaseDao;
-import com.javaliu.platform.exception.DaoException;
+import com.javaliu.platform.exception.wrapper.DAOWraperException;
 import com.javaliu.platform.modules.auth.entity.Log;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,7 +33,7 @@ public class LogDao extends BaseDao<Log>{
             logBean = this.insert(str.toString(), Log.class, params);
         } catch (SQLException e) {
             logger.error("添加日志记录失败", e);
-            throw new DaoException("添加日志记录失败", e);
+            throw new DAOWraperException("添加日志记录失败", e);
         }
         return logBean;
     }

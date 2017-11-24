@@ -1,8 +1,7 @@
 package com.javaliu.platform.modules.auth.service.impl;
 
-import com.javaliu.platform.exception.NullEmptyException;
+import com.javaliu.platform.exception.wrapper.BusinessWrapperException;
 import com.javaliu.platform.modules.auth.dao.LogDao;
-import com.javaliu.platform.modules.auth.dao.UserDao;
 import com.javaliu.platform.modules.auth.entity.Log;
 import com.javaliu.platform.modules.auth.service.ILogService;
 import org.slf4j.Logger;
@@ -26,7 +25,7 @@ public class LogService implements ILogService {
     @Override
     public Log saveLog(Log log){
         if(null == log){
-            throw new NullEmptyException("日志对象不能为空");
+            throw new BusinessWrapperException("日志对象不能为空");
         }
         Log resultLog = logDao.saveOne(log);
         return resultLog;
