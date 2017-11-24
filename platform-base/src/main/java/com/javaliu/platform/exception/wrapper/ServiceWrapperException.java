@@ -1,7 +1,11 @@
 package com.javaliu.platform.exception.wrapper;
 
 /**
- * 服务层包装类
+ * <br> 类名：ServiceWrapperException
+ * <br> 描述：Service层异常处理类
+ * <br> 作者：javaliu
+ * <br> 创建：2017年11月24日
+ * <br> 版本：V1.0.0
  */
 public class ServiceWrapperException extends RuntimeException{
     public ServiceWrapperException() {

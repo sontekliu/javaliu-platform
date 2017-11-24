@@ -2,7 +2,11 @@ package com.javaliu.platform.exception.wrapper;
 
 
 /**
- * DAO异常包装类
+ * <br> 类名：DAOWraperException
+ * <br> 描述：DAO层异常处理类
+ * <br> 作者：javaliu
+ * <br> 创建：2017年11月24日
+ * <br> 版本：V1.0.0
  */
 public class DAOWraperException extends RuntimeException{
     public DAOWraperException() {

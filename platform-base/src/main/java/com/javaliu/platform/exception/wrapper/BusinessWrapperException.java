@@ -1,7 +1,11 @@
 package com.javaliu.platform.exception.wrapper;
 
 /**
- * 业务异常
+ * <br> 类名：BusinessWrapperException
+ * <br> 描述：业务处理异常
+ * <br> 作者：javaliu
+ * <br> 创建：2017年11月24日
+ * <br> 版本：V1.0.0
  */
 public class BusinessWrapperException extends RuntimeException{
     public BusinessWrapperException() {
